@@ -1,6 +1,6 @@
 const STORAGE_KEY = "foods";
 
-const DEFAULT_FOODS = [
+export const DEFAULT_FOODS = [
   "馄饨",
   "拉面",
   "烩面",
@@ -62,6 +62,10 @@ export const allFoods = () => {
     return JSON.parse(foods) as string[];
   }
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_FOODS, null, 2));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_FOODS));
   return DEFAULT_FOODS;
+};
+
+export const saveFoods = (foods: string[]) => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(foods));
 };
